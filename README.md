@@ -57,4 +57,4 @@ The main components are:
 
 - The GitHub MCP server is started using `npx` and runs as a separate process
 - The solution uses the stdio transport type for communication with the MCP server
-- OpenAI's GPT-4 model is used by default, but can be configured through settings 
+- OpenAI's o3-mini-2025-01-31 model is used by default, but can be configured through settings 
