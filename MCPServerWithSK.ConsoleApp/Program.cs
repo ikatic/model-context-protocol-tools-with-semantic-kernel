@@ -57,11 +57,13 @@ class Program
 
         // Retrieve the list of tools available on the GitHub server
         var tools = await mcpClient.ListToolsAsync().ConfigureAwait(false);
+        /*
         foreach (var tool in tools)
         {
             Console.WriteLine($"{tool.Name}: {tool.Description}");
         }
-
+        */
+        
         // Convert MCP tools to Kernel functions and add them to the kernel
         kernel.Plugins.AddFromFunctions("GitHub", tools.Select(aiFunction => aiFunction.AsKernelFunction()));
 
