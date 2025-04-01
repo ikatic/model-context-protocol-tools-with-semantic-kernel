@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.SemanticKernel;
@@ -71,10 +71,40 @@ class Program
             ToolCallBehavior = ToolCallBehavior.AutoInvokeKernelFunctions
         };
 
-        // Test using GitHub tools
-        var prompt = "Summarize the last four commits to the microsoft/semantic-kernel repository?";
-        var result = await kernel.InvokePromptAsync(prompt, new(executionSettings)).ConfigureAwait(false);
-        Console.WriteLine($"\n\n{prompt}\n{result}");
+        Console.WriteLine("\nWelcome to the GitHub MCP Assistant!");
+        Console.WriteLine("You can ask questions about GitHub repositories and operations.");
+        Console.WriteLine("Type '/bye' to exit.\n");
+
+        // Example prompt
+        /*
+        var examplePrompt = "Summarize the last four commits to the microsoft/semantic-kernel repository?";
+        Console.WriteLine($"Example prompt: {examplePrompt}");
+        var result = await kernel.InvokePromptAsync(examplePrompt, new(executionSettings)).ConfigureAwait(false);
+        Console.WriteLine($"\nResponse:\n{result}\n");
+        */
+
+        // Interactive prompt loop
+        while (true)
+        {
+            Console.Write("\nEnter your prompt (or '/bye' to exit): ");
+            var prompt = Console.ReadLine();
+
+            if (string.IsNullOrEmpty(prompt) || prompt.Trim().ToLower() == "/bye")
+            {
+                Console.WriteLine("\nGoodbye!");
+                break;
+            }
+
+            try
+            {
+                var result = await kernel.InvokePromptAsync(prompt, new(executionSettings)).ConfigureAwait(false);
+                Console.WriteLine($"\nResponse:\n{result}\n");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"\nError: {ex.Message}\n");
+            }
+        }
     }
 }
 
