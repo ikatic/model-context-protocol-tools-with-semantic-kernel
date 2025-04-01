@@ -40,7 +40,7 @@ The application will:
 1. Connect to the GitHub MCP server
 2. List all available GitHub tools
 3. Convert these tools to Semantic Kernel functions
-4. Test the integration by asking for a summary of recent commits to the semantic-kernel repository
+4. Interact with the "agent" by asking questions and git hub actions, e.g. "Tell me more about ikatic/model-context-protocol-tools-with-semantic-kernel repository."
 
 ## How It Works
 
@@ -51,7 +51,7 @@ The main components are:
 - MCP client creation and connection
 - Tool retrieval and conversion to Kernel functions
 - Automatic function calling setup
-- Test prompt execution
+- Prompt execution
 
 ## Notes
 
