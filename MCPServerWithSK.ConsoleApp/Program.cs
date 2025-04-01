@@ -1,4 +1,4 @@
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.SemanticKernel;
@@ -74,14 +74,6 @@ class Program
         Console.WriteLine("\nWelcome to the GitHub MCP Assistant!");
         Console.WriteLine("You can ask questions about GitHub repositories and operations.");
         Console.WriteLine("Type '/bye' to exit.\n");
-
-        // Example prompt
-        /*
-        var examplePrompt = "Summarize the last four commits to the microsoft/semantic-kernel repository?";
-        Console.WriteLine($"Example prompt: {examplePrompt}");
-        var result = await kernel.InvokePromptAsync(examplePrompt, new(executionSettings)).ConfigureAwait(false);
-        Console.WriteLine($"\nResponse:\n{result}\n");
-        */
 
         // Interactive prompt loop
         while (true)
